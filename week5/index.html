@@ -131,7 +131,7 @@
                             type="number"
                             class="form-control"
                             v-model.number="cartItem.qty"
-                            @input="debounce(() => putCartItem(cartItem.id, cartItem.qty))"
+                            @input="debounce(() => putCartItem(cartItem.id, cartItem.product_id, cartItem.qty))"
                           />
                           <span class="input-group-text" id="basic-addon2">{{ cartItem.product.unit }}</span>
                         </div>

@@ -63,9 +63,9 @@ const app = createApp({
       }
     },
 
-    async putCartItem(product_id, qty) {
+    async putCartItem(cart_id, product_id, qty) {
       if (qty <= 0) {
-        const index = this.cartList.carts.findIndex((item) => item.id === product_id);
+        const index = this.cartList.carts.findIndex((item) => item.id === cart_id);
         this.cartList.carts[index].qty = 1;
         alert('請輸入大於 0 的數字');
         return;
@@ -77,7 +77,7 @@ const app = createApp({
       };
 
       try {
-        const res = await axios.put(`${apiUrl}/api/${apiPath}/cart/${product_id}`, { data });
+        const res = await axios.put(`${apiUrl}/api/${apiPath}/cart/${cart_id}`, { data });
         this.getCartList();
         alert(res.data.message);
       } catch (err) {
